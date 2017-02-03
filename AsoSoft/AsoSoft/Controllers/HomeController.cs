@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace AsoSoft.Controllers
 {
     public class HomeController : Controller
@@ -30,10 +31,57 @@ namespace AsoSoft.Controllers
             using (BookDBContext contextobj = new BookDBContext())
             {
                 var BookId = int.Parse(id);
-                var getBookId = contextobj.book.Find(BookId);
+                var getBookById = contextobj.book.Find(BookId);
 
-                return Json()
+                return Json(getBookById, JsonRequestBehavior.AllowGet);
             }
         }
+
+        public string UpdateBook(Book book)
+        {
+            if (book != null)
+            {
+                using (BookDBContext contextobj = new BookDBContext())
+                {
+                    contextobj.book.Add(book);
+                    contextobj.SaveChanges();
+
+                    return "Book record added successfully";
+                }
+            }
+            else
+            {
+                return "Invalid Book record";
+            }
+        }
+
+        public string DeleteBook(string bookId)
+        {
+            if (!string.IsNullOrEmpty(bookId))
+            {
+                try
+                {
+                    int _bookId = int.Parse(bookId);
+
+                    using (BookDBContext contextobj = new BookDBContext())
+                    {
+                        var _book = contextobj.book.Find(_bookId);
+                        contextobj.book.Remove(_book);
+                        contextobj.SaveChanges();
+
+                        return "Selected book record deleted successfully";
+                    }
+                }
+                catch (Exception)
+                {
+                    return "Book details not found";                  
+                }
+            }
+            else
+            {
+                return "Invalid operation";
+            }
+        }
+
     }
 }
