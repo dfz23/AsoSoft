@@ -57,5 +57,5 @@ jobs:
         with:
           app-name: 'AsoSoft'
           slot-name: 'production'
-          publish-profile: ${{ secrets.AzureAppService_PublishProfile_ee9cf6440615470ea1f077d1f7aae263 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_944B455AEED445339CA77BCA6327024C }}
           package: .
