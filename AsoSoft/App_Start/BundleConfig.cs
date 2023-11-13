@@ -9,12 +9,12 @@ namespace AsoSoft
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                        "~/Scripts/jquery-3.1.1.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/modernizr-*"));
+            //bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
+            //            "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
@@ -24,13 +24,13 @@ namespace AsoSoft
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
 
-            bundles.Add(new ScriptBundle("~/bundles/angularJS").Include(
-                     "~/Scripts/angular.js"));
+            //bundles.Add(new ScriptBundle("~/bundles/angularJS").Include(
+            //         "~/Scripts/angular.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/customJS").Include(
-                                 "~/Scripts/BookScripts/Module.js",
-                                 "~/Scripts/BookScripts/Service.js",
-                                 "~/Scripts/BookScripts/Controller.js"));
+                                 "~/Content/BookScripts/Module.js",
+                                 "~/Content/BookScripts/Service.js",
+                                 "~/Content/BookScripts/Controller.js"));
         }
     }
 }
